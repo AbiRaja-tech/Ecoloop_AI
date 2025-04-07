@@ -20,13 +20,6 @@
 - Firebase Authentication  
 - Google Data Analytics  
 
----
-
-## 🤖 **Google Gemini API Usage**  
-- **Yes**  
-
----
-
 ## 🚨 **Problem Statement (2080 Scenario)**  
 By 2080, climate change will dominate daily life, intensified by hyper-urbanization, resource scarcity, and extreme weather. Individuals will struggle to track and reduce their environmental footprint amid complex urban systems. Awareness exists, but people lack real-time feedback, localized guidance, and incentives to adopt sustainable habits in transportation, energy, water, and waste management. Governments alone can’t shift behaviors—sustainability demands a grassroots, tech-driven approach. Without personalized tools, urban dwellers will perpetuate unsustainable practices, worsening resource strain. Current gaps include the absence of intelligent, voice-enabled, data-driven systems to coach individuals effectively.
 
