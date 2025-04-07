@@ -1,0 +1,119 @@
+/* Navbar.css */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+/* Enhanced Fixed Navbar with Animated Border */
+.navbar-animated {
+  position: sticky;
+  top: 1rem;
+  left: 18%;
+  transform: translateX(-10%);
+  width: 125%;
+  max-width: 1300px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 9999px;
+  padding: 0.5rem 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: visible;
+  transition: all 0.3s ease;
+}
+
+/* Animated Border */
+.navbar-animated::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 255, 255, 0.5),
+    rgba(6, 182, 212, 0.6),
+    transparent
+  );
+  background-size: 400% 100%;
+  z-index: -1;
+  animation: borderAnimation 4s ease-in-out infinite;
+  mask: linear-gradient(#fff, #fff) content-box, linear-gradient(#fff, #fff);
+  mask-composite: exclude;
+  -webkit-mask: linear-gradient(#fff, #fff) content-box, linear-gradient(#fff, #fff);
+  -webkit-mask-composite: xor;
+}
+
+/* Hover Effect */
+.navbar-animated:hover::before {
+  animation-duration: 2s;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 255, 255, 0.7),
+    rgba(6, 182, 212, 0.8),
+    transparent
+  );
+}
+
+/* Button Styling */
+.nav-button {
+  background: transparent;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+}
+
+.nav-button:hover {
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.nav-button.active {
+  background: rgba(0, 255, 255, 0.1);
+  border-radius: 20px;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* Animation */
+@keyframes borderAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar-animated {
+    width: 90%;
+    padding: 0.5rem 1rem;
+    top: 0.5rem;
+  }
+  
+  .nav-button {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+.navbar-animated {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(8px);
+}
+
+.nav-button {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.nav-button.active {
+  background: rgba(6, 182, 212, 0.2);
+  color: #fff;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
+}

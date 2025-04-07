@@ -1,0 +1,202 @@
+@import url("https://fonts.cdnfonts.com/css/mona-sans");
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Mona Sans", sans-serif;
+  min-height: 100vh;
+  background:rgb(0, 0, 0); /* slate-950 */
+  position: relative;
+  color: #e0e0e0;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: linear-gradient(to right, rgb(0, 0, 0) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(79, 79, 79, 0.18) 1px, transparent 1px);
+  background-size: 14px 24px;
+  z-index: -1;
+}
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.centered-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Navbar */
+.navbar {
+  width: 100%;
+  padding: 1rem;
+  background: transparent;
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-content {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nav-button {
+  background: transparent;
+  color: #e0e0e0;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-button.active {
+  background: linear-gradient(90deg, rgba(6, 182, 212, 0.9), rgba(87, 83, 78, 0.9));
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.7);
+}
+
+.nav-button:hover {
+  color: #fff;
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.5);
+}
+
+.logout-button {
+  background: linear-gradient(90deg, rgba(255, 68, 68, 0.5), rgba(87, 83, 78, 0.5));
+}
+
+/* Futuristic Card */
+.futuristic-card {
+  background: linear-gradient(180deg, rgba(41, 41, 41, 0.8) 0%, rgba(25, 25, 25, 0.9) 100%);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
+  width: 100%;
+  max-width: 800px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.futuristic-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 16px;
+  background: linear-gradient(45deg, rgba(5, 109, 128, 0.36), rgba(87, 83, 78, 0.3));
+  background-size: 200% 200%;
+  opacity: 0.6;
+  animation: glowPulse 6s ease-in-out infinite;
+  z-index: -1;
+}
+
+.futuristic-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(8, 205, 240, 0.3);
+}
+
+.card-header {
+  padding: 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.holo-text {
+  color: #fff;
+  font-size: 2rem;
+  text-shadow: 0 0 5px rgba(6, 182, 212, 0.8), 0 0 10px rgba(6, 182, 212, 0.6);
+  animation: flicker 4s infinite alternate;
+}
+
+.card-content {
+  padding: 2rem;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+}
+/* EcoMapFeature Styles */
+.ecomap-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.eco-advice {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(25, 25, 25, 0.8);
+  border-radius: 8px;
+  border: 1px solid rgba(6, 182, 212, 0.5);
+  color: #a5f3fc;
+  font-size: 1rem;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+/* Animations */
+@keyframes glowPulse {
+  0% { background-position: 0% 0%; opacity: 0.7; }
+  50% { background-position: 100% 100%; opacity: 1; }
+  100% { background-position: 0% 0%; opacity: 0.7; }
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20%, 24%, 55% { opacity: 0.8; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .centered-content {
+    gap: 1rem;
+  }
+  .futuristic-card {
+    max-width: 100%;
+  }
+  .card-content {
+    padding: 1rem;
+  }
+  .eco-input {
+    max-width: 250px;
+  }
+  .controls {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .input-container {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .eco-advice {
+    font-size: 0.9rem;
+  }
+}

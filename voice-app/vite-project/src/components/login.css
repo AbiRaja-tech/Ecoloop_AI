@@ -1,0 +1,193 @@
+/* src/components/Login.css */
+@import url("https://fonts.cdnfonts.com/css/mona-sans");
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.login-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card Styles */
+.login-card {
+  position: relative;
+  width: 340px;
+  height: 520px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(41, 41, 41, 0.8) 0%, rgba(25, 25, 25, 0.9) 50%);
+  backdrop-filter: blur(6px);
+  box-shadow: inset 0 2px 4px rgba(231, 196, 160, 0.2), inset 0 -2px 4px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(6, 182, 212, 0.2);
+  color: #ccc;
+  text-shadow: 1px 1px 3px rgba(51, 51, 51, 0.5);
+  padding: 28px 42px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.login-graphic {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.8;
+  filter: brightness(0.7);
+}
+
+.error-message {
+  color: #ff5555;
+  margin: 8px 0;
+  font-size: 0.9em;
+  text-shadow: 0 0 5px rgba(255, 85, 85, 0.5);
+  text-align: center;
+}
+
+/* Login Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+}
+
+.input-field {
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-family: "Mona Sans", sans-serif;
+  font-size: 0.9em;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #06b6d4;
+  box-shadow: 0 0 8px rgba(6, 182, 212, 0.5);
+}
+
+.input-field::placeholder {
+  color: #aaa;
+}
+
+.button {
+  width: fit-content;
+  border-radius: 100px;
+  padding: 10px 40px;
+  margin-top: 14px;
+  background: linear-gradient(90deg, rgba(6, 182, 212, 0.5), rgba(87, 83, 78, 0.5));
+  border: 1px solid rgba(6, 182, 212, 0.7);
+  cursor: pointer;
+  color: #fff;
+  font-family: "Mona Sans", sans-serif;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  align-self: center;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Accents */
+.accents {
+  user-select: none;
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 20%;
+}
+
+.acc-card {
+  width: 350px;
+  height: 520px;
+  background: linear-gradient(135deg, rgba(238, 238, 238, 0.1), rgba(6, 182, 212, 0.05));
+  opacity: 0.7;
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 20%;
+  margin: auto;
+  border-radius: 20px;
+  box-shadow: inset 0 2px 4px rgba(224, 201, 178, 0.4), inset 0 -2px 4px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  transition: all 0.1s linear;
+  transform-origin: 20% 80%;
+}
+
+.acc-card:nth-child(1) { animation: wobble 18s ease-in-out infinite; }
+.acc-card:nth-child(2) { animation: wobble 22s ease-in-out -6s infinite reverse; }
+.acc-card:nth-child(3) { animation: wobble 26s ease-in-out -18s infinite; }
+
+.top-light {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -42px;
+  margin: auto;
+  width: 284px;
+  height: 6px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #06b6d4, #57534e);
+  box-shadow: 0 0 1px 1px #06b6d4, 0 1px 2px 1px rgba(6, 182, 212, 0.5),
+    0 2px 6px 1px rgba(6, 182, 212, 0.4), 0 4px 12px 0 rgba(6, 182, 212, 0.6);
+}
+
+/* Animations */
+@keyframes wobble {
+  0% { transform: translateX(10px) translateY(20px) rotate(-3deg) scale(1); }
+  20% { transform: translateX(-44px) translateY(-8px) rotate(6deg) scale(1.02); }
+  60% { transform: translateX(32px) translateY(18px) rotate(-8deg) scale(1); }
+  80% { transform: translateX(-42px) translateY(-22px) rotate(12deg) scale(0.94); }
+  100% { transform: translateX(10px) translateY(20px) rotate(-3deg) scale(1); }
+}
+
+/* Media Query */
+@media screen and (max-height: 600px) {
+  .login-card {
+    height: fit-content;
+  }
+  .login-graphic {
+    display: none;
+  }
+  .acc-card {
+    height: 180px;
+  }
+  .login-card,
+  .accents {
+    top: 30%;
+  }
+}
